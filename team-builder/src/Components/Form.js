@@ -2,7 +2,7 @@ import React, {  useState } from 'react';
 
 
 function Form({setMember}) {
-
+  // const {setMember} = props;
   const [data, setData] = useState({
     username:"",
     email:"",
@@ -11,7 +11,8 @@ function Form({setMember}) {
  
   const handleSubmit = event => {
     event.preventDefault();
-    setMember(data)
+    setMember(members=>[...members, data])
+    setData({username:'',email:'',role:''})
   }
 
   const changeHandler = event => {
@@ -20,7 +21,7 @@ function Form({setMember}) {
   }
 
   return (
-    <form onSubmit={event => handleSubmit(event)} >
+    <form onSubmit={handleSubmit} >
         <label>
             Name:
             <input 
@@ -34,7 +35,7 @@ function Form({setMember}) {
         <label>
             Email:
             <input 
-                type="email"
+                type="text"
                 name="email"
                 onChange = {changeHandler}
                 value = {data.email}
@@ -51,7 +52,7 @@ function Form({setMember}) {
             />
         </label>
 
-        <button>Submit!</button>
+        <button type="submit">Add Person!</button>
     </form>
   );
 }
