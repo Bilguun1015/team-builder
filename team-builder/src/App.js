@@ -10,10 +10,7 @@ function App() {
     email:"gmail.com",
     role:"web"
     }
-
-
-  
-  ]);
+]);
   console.log(members)
   return (
     <div className="App">
